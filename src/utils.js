@@ -1,3 +1,4 @@
+const got = require('got')
 const jwt = require('jsonwebtoken')
 
 const stripPrefix = (str, prefix) => {
@@ -10,7 +11,8 @@ const getJwtData = (header) => {
 }
 
 const verifyJwt = async (header) => {
-    return (await got(`${process.env.AUTH_API_URL}/verify`, {headers: {authorization: header}}))
+    const result = await got('verify', {prefixUrl: process.env.AUTH_API_URL, headers: {authorization: header}})
+    return result
 }
 
 const protectedRouteValidator = {
