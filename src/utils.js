@@ -11,7 +11,7 @@ const getJwtData = (header) => {
 }
 
 const verifyJwt = async (header) => {
-    const result = await got(`${process.env.AUTH_API_URL}/verify`, {headers: {authorization: header}})
+    const result = await got('verify', {prefixUrl: process.env.AUTH_API_URL, headers: {authorization: header}})
     return result
 }
 
