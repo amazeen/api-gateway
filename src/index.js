@@ -4,6 +4,8 @@ const fastify = require('fastify')({logger: true})
 
 const basePrefix = '/api/v1'
 
+fastify.register(require('fastify-cors'),  {origin: '*'})
+
 fastify.register(require('./routes/auth'), {prefix: basePrefix + '/auth'})
 fastify.register(require('./routes/data'), {prefix: basePrefix + '/data'})
 
