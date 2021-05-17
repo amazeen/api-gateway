@@ -6,8 +6,9 @@ const basePrefix = '/api/v1'
 
 fastify.register(require('fastify-cors'),  {origin: '*'})
 
-fastify.register(require('./routes/auth'), {prefix: basePrefix + '/auth'})
-fastify.register(require('./routes/data'), {prefix: basePrefix + '/data'})
+fastify.register(require('./routes/auth'),     {prefix: basePrefix + '/auth'})
+fastify.register(require('./routes/data'),     {prefix: basePrefix + '/data'})
+fastify.register(require('./routes/realtime'), {prefix: basePrefix + '/realtime'})
 
 fastify.listen(process.env.PORT || 3000, '0.0.0.0', (err, address) => {
     if (err) {
