@@ -7,7 +7,8 @@ on:
       - '*'
 
 jobs:
-  build:
+  deploy:
+    environment: aws_production
 
     runs-on: ubuntu-latest
 
