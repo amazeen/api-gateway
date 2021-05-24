@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  api-gateway:
+    build: .
+    ports:
+      - 80:3000
+    restart: unless-stopped
+    environment: 
+      PORT:              3000
+      DATA_API_URL:      ${DATA_API_URL:?DATA_API_URL is missing}
+      AUTH_API_URL:      ${AUTH_API_URL:?AUTH_API_URL is missing}
+      REALTIME_API_URL:  ${REALTIME_API_URL:?REALTIME_API_URL is missing}
+
+
