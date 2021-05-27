@@ -10,5 +10,11 @@ services:
       DATA_API_URL:      ${DATA_API_URL:?DATA_API_URL is missing}
       AUTH_API_URL:      ${AUTH_API_URL:?AUTH_API_URL is missing}
       REALTIME_API_URL:  ${REALTIME_API_URL:?REALTIME_API_URL is missing}
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${LOG_REGION:?LOG_REGION is missing}
+        awslogs-group:  ${LOG_GROUP:?LOG_GROUP is missing}
+        mode:           non-blocking
 
 
